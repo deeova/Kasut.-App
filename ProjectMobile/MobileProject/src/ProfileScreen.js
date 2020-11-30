@@ -1,193 +1,175 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
-import { Avatar, Title, Caption, Paragraph } from 'react-native-paper'
-import { SepatuCompass, Compass1, Compass2, Compass3, Compass4, Compass5, Compass6, Compass7, Compass8, Compass9 } from './assets/image/index';
+import { StyleSheet, Text, View, Image } from 'react-native'
+import { Avatar, Title, Caption } from 'react-native-paper'
+import { SepatuCompass } from './assets/image/index'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { color } from 'react-native-reanimated'
+import { Dompet, PesananBaru, SampaiTujuan, SedangDikirim, SiapDikirim } from './assets/icon/index'
 
-const ProfileScreen = () => {
+const DetailsScreen = ({ navigation }) => {
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
+
             <View style={styles.header}>
+                <Text style={styles.text}>PROFILE</Text>
                 <Avatar.Image
                     source={SepatuCompass}
-                    size={75}
+                    size={90}
                 />
-                <View style={{ marginLeft: 15 }}>
-                    <Title style={styles.title1}>SepatuCompass</Title>
-                    <Caption style={styles.caption}>@sepatucompass</Caption>
-                    <View style={styles.row}>
-                        <View style={styles.section}>
-                            <Paragraph style={styles.paragraph}>50 </Paragraph>
-                            <Caption style={styles.caption}>Kiriman</Caption>
-                        </View>
-                        <View style={styles.section}>
-                            <Paragraph style={styles.paragraph}>841k </Paragraph>
-                            <Caption style={styles.caption}>Follower</Caption>
-                        </View>
-                        <View style={styles.section}>
-                            <Paragraph style={styles.paragraph}>69 </Paragraph>
-                            <Caption style={styles.caption}>Following</Caption>
-                        </View>
-                    </View>
-                    <View>
-                        <Text style={styles.text}>Compass®</Text>
-                        <Text style={styles.text1}>
-                            Sepatu vulkanisir buatan Indonesia sejak 1998{'\n'}
-                        #banggabuatanIndonesia{'\n'}
-                        ••{'\n'}
-                        Restock Gazelle & Vintage{'\n'}
-                        03 Desember 2020 / 12:30 WIB{'\n'}
-                        👇🏻👇🏻{'\n'}www.tokopedia.com/sepatucompass</Text>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.body}>
-                <View style={{ alignItems: 'center' }}>
-                    <Avatar.Image
-                        source={SepatuCompass}
-                        size={50}
-                    />
-                    <View>
-                        <Title style={styles.title}>Term & cond</Title>
-                    </View>
-                </View>
-                <View style={{ marginLeft: 10, alignItems: 'center' }}>
-                    <Avatar.Image
-                        source={SepatuCompass}
-                        size={50}
-                    />
-                    <View>
-                        <Title style={styles.title}>BRAVO 002</Title>
-                    </View>
-                </View>
-                <View style={{ marginLeft: 10, alignItems: 'center' }}>
-                    <Avatar.Image
-                        source={SepatuCompass}
-                        size={50}
-                    />
-                    <View>
-                        <Title style={styles.title}>darahkubiru</Title>
-                    </View>
-                </View>
-                <View style={{ marginLeft: 10, alignItems: 'center' }}>
-                    <Avatar.Image
-                        source={SepatuCompass}
-                        size={50}
-                    />
-                    <View>
-                        <Title style={styles.title}>Filter</Title>
-                    </View>
-                </View>
+                <Title style={styles.title}>Sepatu Compass</Title>
             </View>
             <View style={styles.footer}>
-                <View style={{ flexDirection: 'row' }}>
-                    <Image
-                        source={Compass1}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass2}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass3}
-                        style={styles.item}
-                    />
+                <View style={styles.item}>
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    }}><Text style={styles.textItem}>Penjualan</Text>
+                        <Text style={styles.textItem1}>Lihat Riwayat</Text>
+                    </View>
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'center'
+                    }}>
+                        <View style={{ alignItems: 'center', marginRight: 10 }}>
+                            <Image
+                                source={PesananBaru}
+                                style={{
+                                    width: 40,
+                                    height: 40
+                                }}
+                            />
+                            <View>
+                                <Text style={styles.textIcon}>Pesanan{'\n'}Baru</Text>
+                            </View>
+                        </View>
+                        <View style={{ alignItems: 'center', marginRight: 10, marginLeft: 10 }}>
+                            <Image
+                                source={SiapDikirim}
+                                style={{
+                                    width: 40,
+                                    height: 40
+                                }}
+                            />
+                            <View>
+                                <Text style={styles.textIcon}>Siap Dikirim</Text>
+                            </View>
+                        </View>
+                        <View style={{ alignItems: 'center', marginRight: 15, marginLeft: 10 }}>
+                            <Image
+                                source={SedangDikirim}
+                                style={{
+                                    width: 40,
+                                    height: 40
+                                }}
+                            />
+                            <View>
+                                <Text style={styles.textIcon}>Sedang{'\n'}Dikirim</Text>
+                            </View>
+                        </View>
+                        <View style={{ alignItems: 'center', marginLeft: 15 }}>
+                            <Image
+                                source={SampaiTujuan}
+                                style={{
+                                    width: 40,
+                                    height: 40
+                                }}
+                            />
+                            <View>
+                                <Text style={styles.textIcon}>Sampai{'\n'}Tujuan</Text>
+                            </View>
+                        </View>
+                    </View>
                 </View>
-                <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                    <Image
-                        source={Compass4}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass5}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass6}
-                        style={styles.item}
-                    />
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                    <Image
-                        source={Compass7}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass8}
-                        style={styles.item}
-                    />
-                    <Image
-                        source={Compass9}
-                        style={styles.item}
-                    />
+                <View style={styles.item}>
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'flex-start',
+                    }}><Text style={styles.textItem}>Dana di Kasut.</Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginLeft: 25 }}>
+                        <Image
+                            source={Dompet}
+                            style={{
+                                width: 60,
+                                height: 60
+                            }}
+                        />
+                        <View style={{ marginLeft: 15, flexDirection: 'column' }}>
+                            <Caption style={styles.caption}>Saldo</Caption>
+                            <Title style={styles.title1}>Rp. 1.000.000</Title>
+                        </View>
+                    </View>
                 </View>
             </View>
-        </ScrollView>
-    )
+        </View>
+    );
 }
 
-export default ProfileScreen
+export default DetailsScreen
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f4f4f4'
+        display: 'flex',
+        backgroundColor: '#fff',
+
     },
     header: {
         display: 'flex',
-        flexDirection: 'row',
+        flex: 1,
         margin: 10,
-    },
-    body: {
-        flexDirection: 'row',
-        display: 'flex',
-        justifyContent: 'center',
-        borderBottomWidth: 1,
-        borderColor: '#353759'
+        alignItems: 'center'
     },
     footer: {
         display: 'flex',
-        justifyContent: 'center',
-        margin: 10
-    },
-    title: {
-        fontSize: 10,
-        marginTop: 1,
-        fontWeight: 'bold'
-    },
-    title1: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    caption: {
-        fontSize: 10,
-        lineHeight: 15,
-    },
-    row: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    section: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginRight: 15,
-    },
-    paragraph: {
-        fontWeight: 'bold',
-        marginRight: 3,
-        fontSize: 15,
-        lineHeight: 15,
-    },
-    text: {
-        fontSize: 10,
-        fontWeight: 'bold'
-    },
-    text1: {
-        fontSize: 10,
+        flex: 2,
+        justifyContent: 'flex-start',
+        /*         width: '100%',
+                height: '50%', */
+        backgroundColor: '#353759',
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25
     },
     item: {
-        width: 100,
-        height: 100,
-        marginLeft: 10
-    }
+        display: 'flex',
+        margin: 20,
+        width: 320,
+        height: 110,
+        backgroundColor: '#fff',
+        borderRadius: 20
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#000'
+    },
+    title: {
+        fontWeight: 'bold',
+        color: '#000'
+    },
+    textItem: {
+        margin: 10,
+        fontWeight: 'bold',
+        color: '#000'
+    },
+    textItem1: {
+        margin: 10,
+        lineHeight: 15,
+        color: 'green'
+    },
+    textIcon: {
+        fontSize: 12,
+        color: 'green'
+    },
+    title1: {
+        fontSize: 30,
+        marginTop: 3,
+        fontWeight: 'bold',
+        color: 'green'
+    },
+    caption: {
+        fontSize: 14,
+        lineHeight: 15,
+    },
 })
+
